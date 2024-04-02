@@ -5,7 +5,7 @@ title: hongson11698
 description: notes
 url: "https://hongson11698.github.io" # the base hostname & protocol for your site
 # theme: jekyll-bear-theme
-remote_theme: jekyll-bear-theme
+remote_theme: knhash/jekyllBear
 
 #########################
 # more settings
