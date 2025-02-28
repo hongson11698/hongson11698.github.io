@@ -4,7 +4,7 @@ title: Reverse Engineer với Ghidra
 date: 2024-05-31
 subtitle: How to Use Ghidra to Reverse Engineer
 tags:
-- reverseing
+- reversing
 - general
 --- 
 - [Giới thiệu về Ghidra](#giới-thiệu-về-ghidra)
