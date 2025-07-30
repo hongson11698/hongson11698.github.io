@@ -73,7 +73,7 @@ Trong khóa ShellFolder, tạo DWORD Attributes có giá trị là 0xf090013d. V
 
 ![alt text](../assets/2025-07-30-hidden_persistence_202502/07_shell_folder_attr.png)
 
-Ngoài ra, sau khi đã chuẩn bị nội dung registry trên, khi tạo một thư mục với tên `NewFolder.<CLSID>` (ví dụ `C:\newfolder.{1aef7ed5-3edd-40a3-8387-37242f20bccd}`) và truy cập thư mục này, Dll payload cũng có thể được thực thi. Thư mục có format tên như vậy gọi là Junction Folder.
+Sau khi đã chuẩn bị nội dung registry trên, khi tạo một thư mục với tên `NewFolder.<CLSID>` (ví dụ `C:\newfolder.{1aef7ed5-3edd-40a3-8387-37242f20bccd}`) và truy cập thư mục này, Dll payload cũng có thể được thực thi. Thư mục có format tên như vậy gọi là Junction Folder.
 
 ## Tạo file Library để thực thi COM object
 
