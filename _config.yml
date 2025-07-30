@@ -56,11 +56,4 @@ exclude:
 exclude: [vendor]
 
 Blog: /blog
-
-# Add general links to site pages here
-links:
-  Resume: /blog
-
-# Add links for more focus here
-special_links:
-  "Search": /blog
+Life: /life
