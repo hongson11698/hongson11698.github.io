@@ -12,6 +12,8 @@ tags:
 - [Chain quá trình thực thi với một số chương trình sạch - (POC: Powershell Profile)](#chain-quá-trình-thực-thi-với-một-số-chương-trình-sạch---poc-powershell-profile)
 - [Persistence add/remove on the fly - (POC - WM\_QUERYENDSESSION handler)](#persistence-addremove-on-the-fly---poc---wm_queryendsession-handler)
 - [COM Model + Library File](#com-model--library-file)
+  - [Tạo COM class object trong registry để thực thi dll payload](#tạo-com-class-object-trong-registry-để-thực-thi-dll-payload)
+  - [Tạo file Library để thực thi COM object](#tạo-file-library-để-thực-thi-com-object)
 - [Lưu ý, khuyến nghị khi thực hiện rà soát.](#lưu-ý-khuyến-nghị-khi-thực-hiện-rà-soát)
 - [Tham khảo](#tham-khảo)
 
@@ -57,7 +59,7 @@ Hạn chế có thể gặp là sẽ bị mất persistence khi tiến trình th
 
 Kỹ thuật tiếp theo lợi dụng tập tin .libray-ms và COM Model để thực hiện load 1 dll bất thường bằng explorer mà không cần tạo entry ASEP. Có 2 bước để thực hiện kỹ thuật này.
 
-1. Tạo COM class object trong registry để thực thi dll payload
+## Tạo COM class object trong registry để thực thi dll payload
 
 Đầu tiên cần chuẩn bị file payload dll phù hợp với COM model
 
@@ -73,7 +75,7 @@ Trong khóa ShellFolder, tạo DWORD Attributes có giá trị là 0xf090013d. V
 
 Ngoài ra, sau khi đã chuẩn bị nội dung registry trên, khi tạo một thư mục với tên `NewFolder.<CLSID>` (ví dụ `C:\newfolder.{1aef7ed5-3edd-40a3-8387-37242f20bccd}`) và truy cập thư mục này, Dll payload cũng có thể được thực thi. Thư mục có format tên như vậy gọi là Junction Folder.
 
-2. Tạo file Library để thực thi COM object
+## Tạo file Library để thực thi COM object
 
 [Libray](https://wikileaks.org/ciav7p1/cms/page_13763381.html) (.library-ms) là các file thư viện có định giạng XML, có tác dụng để explorer hiển thị nội dung của nhiều thư mục trong cùng một lúc. Library file có thể bị lợi dụng theo nhiều cách khác nhau thông qua thuộc tính SearchConenectionDescription/SimpleLocation/Url. Các thuộc tính này mô tả các thư mục để explorer kiểm tra nội dung và gộp vào. Trên windows có nhiều file .library-ms mặc định trong thư mục `%appdata%\Microsoft\Windows\Libraries` có thể dùng làm template để chỉnh sửa payload trong thuộc tính `<url>`
 
